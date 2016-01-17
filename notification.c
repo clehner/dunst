@@ -484,8 +484,8 @@ int notification_init(notification * n, int id)
 
         if (n->actions) {
                 n->actions->dmenu_str = NULL;
-                for (int i = 0; i < n->actions->count; i += 2) {
-                        char *human_readable = n->actions->actions[i + 1];
+                for (int i = 1; i < n->actions->count; i += 2) {
+                        char *human_readable = n->actions->actions[i];
                         string_replace_char('[', '(', human_readable); // kill square brackets
                         string_replace_char(']', ')', human_readable);
 
